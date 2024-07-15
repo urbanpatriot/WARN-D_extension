@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Resources</title>
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #2c5282;
+        }
+        .resource {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .resource:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        a {
+            color: #4299e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #2b6cb0;
+        }
+        #quiz {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Helpful Mental Health Resources</h1>
+    <p>Your journey to better mental health starts here. We've curated a list of reliable organizations in the Netherlands that offer support and assistance for various mental health issues.</p>
+
+    <div class="resource">
+        <h2>GGZ Nederland</h2>
+        <p>GGZ Nederland is the leading association for mental health and addiction care in the Netherlands. They represent a wide network of mental health care providers and work towards improving the quality and accessibility of mental health services across the country.</p>
+        <p><strong>Services offered:</strong></p>
+        <ul>
+            <li>Coordination of mental health policies and practices</li>
+            <li>Advocacy for mental health awareness and destigmatization</li>
+            <li>Information hub for patients, professionals, and policymakers</li>
+            <li>Collaboration with international mental health organizations</li>
+        </ul>
+        <p><strong>Phone:</strong> +31 (0)33 460 89 00</p>
+        <a href="https://www.ggznederland.nl">Visit Website</a>
+    </div>
+
+    <div class="resource">
+        <h2>113 Suicide Prevention</h2>
+        <p>113 Suicide Prevention is a national organization dedicated to preventing suicide through direct support, research, and education. They offer a range of services aimed at helping individuals in crisis and those concerned about loved ones.</p>
+        <p><strong>Services offered:</strong></p>
+        <ul>
+            <li>24/7 crisis helpline for immediate support</li>
+            <li>Online chat service for those who prefer text-based communication</li>
+            <li>Self-help modules and resources for managing suicidal thoughts</li>
+            <li>Training programs for professionals and gatekeepers</li>
+        </ul>
+        <p><strong>Phone:</strong> 0800-0113 (free) or 113</p>
+        <a href="https://www.113.nl">Visit Website</a>
+    </div>
+
+    <div class="resource">
+        <h2>MIND</h2>
+        <p>MIND is a prominent mental health advocacy organization in the Netherlands. They focus on improving the lives of people with mental health issues through support, information sharing, and campaigning for better mental health policies.</p>
+        <p><strong>Services offered:</strong></p>
+        <ul>
+            <li>Peer support groups and networks</li>
+            <li>Mental health information and educational resources</li>
+            <li>Advocacy for mental health rights and improved care</li>
+            <li>Campaigns to reduce stigma and raise awareness</li>
+        </ul>
+        <p><strong>Phone:</strong> +31 (0)33 303 2400</p>
+        <a href="https://wijzijnmind.nl">Visit Website</a>
+    </div>
+
+    <div class="resource">
+        <h2>Depression Association</h2>
+        <p>The Depression Association (Depressie Vereniging) is a specialized organization focusing on supporting individuals experiencing depression and their loved ones. They provide a platform for sharing experiences, gaining knowledge, and finding support.</p>
+        <p><strong>Services offered:</strong></p>
+        <ul>
+            <li>Support groups for people with depression and their families</li>
+            <li>Information about depression, its symptoms, and treatment options</li>
+            <li>Advocacy for better depression care and research</li>
+            <li>Online forum for peer support and experience sharing</li>
+        </ul>
+        <p><strong>Phone:</strong> +31 (0)30 254 3054</p>
+        <a href="https://www.depressievereniging.nl">Visit Website</a>
+    </div>
+
+    <div id="quiz">
+        <h2>Find Your Best Resource</h2>
+        <p>Answer a few questions to get a personalized recommendation:</p>
+        <div id="question"></div>
+        <div id="options"></div>
+    </div>
+    <div id="result" style="display:none;"></div>
+
+    <script>
+        const questions = [
+            {
+                question: "What type of support are you primarily looking for?",
+                options: ["General mental health information", "Crisis support", "Peer support and advocacy", "Depression-specific support"]
+            },
+            {
+                question: "How urgent is your need for support?",
+                options: ["Immediate/Crisis", "Within the next few days", "General information, not time-sensitive"]
+            },
+            {
+                question: "Do you prefer online or phone-based support?",
+                options: ["Online", "Phone", "Both/No preference"]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+
+        function showQuestion() {
+            const questionEl = document.getElementById('question');
+            const optionsEl = document.getElementById('options');
+            const question = questions[currentQuestion];
+            
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => selectOption(index);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function selectOption(index) {
+            answers.push(index);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultEl = document.getElementById('result');
+            let recommendation;
+            if (answers[0] === 0) {
+                recommendation = "GGZ Nederland";
+            } else if (answers[0] === 1 || answers[1] === 0) {
+                recommendation = "113 Suicide Prevention";
+            } else if (answers[0] === 2) {
+                recommendation = "MIND";
+            } else {
+                recommendation = "Depression Association";
+            }
+            
+            resultEl.innerHTML = `<p>Based on your answers, we recommend contacting <strong>${recommendation}</strong>.</p>
+                                  <p>Remember, this is just a suggestion. If you're in immediate crisis, please contact emergency services or 113 Suicide Prevention.</p>`;
+            resultEl.style.display = 'block';
+            document.getElementById('quiz').style.display = 'none';
+        }
+
+        showQuestion();
+
+        // Animation for resource cards
+        document.querySelectorAll('.resource').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
