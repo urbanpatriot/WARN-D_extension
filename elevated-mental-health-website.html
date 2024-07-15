@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f0f4f8;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 40px;
+        }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .resource {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .resource:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .resource h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .resource-content {
+            max-height: 150px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .resource.expanded .resource-content {
+            max-height: 1000px;
+        }
+        .expand-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .quick-access, #quiz, .faq, .feedback {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3a7abd;
+        }
+        .closing-statement {
+            text-align: center;
+            font-style: italic;
+            margin-top: 40px;
+            color: #4a5568;
+            font-size: 1.2em;
+        }
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background-color: var(--primary-color);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <header>
+        <div class="container">
+            <h1>Mental Health Resources</h1>
+            <p>Your journey to better mental health starts here.</p>
+        </div>
+    </header>
+    <main class="container">
+        <section class="quick-access">
+            <h2>Quick Access</h2>
+            <ul>
+                <li><strong>Emergency:</strong> If you're in immediate danger, call 112</li>
+                <li><strong>Suicide Prevention Hotline:</strong> 0800-0113 (free) or 113</li>
+                <li><strong>General Mental Health Support:</strong> +31 (0)33 303 2400 (MIND)</li>
+            </ul>
+        </section>
+
+        <section class="resources-grid">
+            <div class="resource">
+                <h3>GGZ Nederland</h3>
+                <div class="resource-content">
+                    <p>GGZ Nederland is the leading association for mental health and addiction care in the Netherlands. They represent a wide network of mental health care providers and work towards improving the quality and accessibility of mental health services across the country.</p>
+                    <p><strong>Services offered:</strong></p>
+                    <ul>
+                        <li>Coordination of mental health policies and practices</li>
+                        <li>Advocacy for mental health awareness and destigmatization</li>
+                        <li>Information hub for patients, professionals, and policymakers</li>
+                        <li>Collaboration with international mental health organizations</li>
+                    </ul>
+                    <p><strong>Phone:</strong> +31 (0)33 460 89 00</p>
+                    <a href="https://www.ggznederland.nl">Visit Website</a>
+                </div>
+                <button class="expand-btn">Read More</button>
+            </div>
+
+            <div class="resource">
+                <h3>113 Suicide Prevention</h3>
+                <div class="resource-content">
+                    <p>113 Suicide Prevention is a national organization dedicated to preventing suicide through direct support, research, and education. They offer a range of services aimed at helping individuals in crisis and those concerned about loved ones.</p>
+                    <p><strong>Services offered:</strong></p>
+                    <ul>
+                        <li>24/7 crisis helpline for immediate support</li>
+                        <li>Online chat service for those who prefer text-based communication</li>
+                        <li>Self-help modules and resources for managing suicidal thoughts</li>
+                        <li>Training programs for professionals and gatekeepers</li>
+                    </ul>
+                    <p><strong>Phone:</strong> 0800-0113 (free) or 113</p>
+                    <a href="https://www.113.nl">Visit Website</a>
+                </div>
+                <button class="expand-btn">Read More</button>
+            </div>
+
+            <div class="resource">
+                <h3>MIND</h3>
+                <div class="resource-content">
+                    <p>MIND is a prominent mental health advocacy organization in the Netherlands. They focus on improving the lives of people with mental health issues through support, information sharing, and campaigning for better mental health policies.</p>
+                    <p><strong>Services offered:</strong></p>
+                    <ul>
+                        <li>Peer support groups and networks</li>
+                        <li>Mental health information and educational resources</li>
+                        <li>Advocacy for mental health rights and improved care</li>
+                        <li>Campaigns to reduce stigma and raise awareness</li>
+                    </ul>
+                    <p><strong>Phone:</strong> +31 (0)33 303 2400</p>
+                    <a href="https://wijzijnmind.nl">Visit Website</a>
+                </div>
+                <button class="expand-btn">Read More</button>
+            </div>
+
+            <div class="resource">
+                <h3>Depression Association</h3>
+                <div class="resource-content">
+                    <p>The Depression Association (Depressie Vereniging) is a specialized organization focusing on supporting individuals experiencing depression and their loved ones. They provide a platform for sharing experiences, gaining knowledge, and finding support.</p>
+                    <p><strong>Services offered:</strong></p>
+                    <ul>
+                        <li>Support groups for people with depression and their families</li>
+                        <li>Information about depression, its symptoms, and treatment options</li>
+                        <li>Advocacy for better depression care and research</li>
+                        <li>Online forum for peer support and experience sharing</li>
+                    </ul>
+                    <p><strong>Phone:</strong> +31 (0)30 254 3054</p>
+                    <a href="https://www.depressievereniging.nl">Visit Website</a>
+                </div>
+                <button class="expand-btn">Read More</button>
+            </div>
+        </section>
+
+        <section class="resource">
+            <h2>Additional Resources</h2>
+            <h3>Online Self-Help Tools</h3>
+            <ul>
+                <li><strong>Moodgym:</strong> Interactive self-help program for preventing and coping with depression and anxiety</li>
+                <li><strong>7 Cups:</strong> Free, anonymous, and confidential online text chat with trained listeners, online therapists, and counselors</li>
+            </ul>
+            <h3>Mental Health Apps</h3>
+            <ul>
+                <li><strong>Headspace:</strong> Meditation and mindfulness app</li>
+                <li><strong>Daylio:</strong> Mood tracking and journaling app</li>
+            </ul>
+        </section>
+
+        <section id="quiz">
+            <h2>Find Your Best Resource</h2>
+            <p>Answer a few questions to get a personalized recommendation:</p>
+            <div id="question"></div>
+            <div id="options"></div>
+        </section>
+        <div id="result" style="display:none;"></div>
+
+        <section class="faq">
+            <h2>FAQ</h2>
+            <ol>
+                <li>
+                    <strong>How do I know if I need professional help?</strong>
+                    <p>If your mental health is affecting your daily life, relationships, or work, it may be time to seek professional help.</p>
+                </li>
+                <li>
+                    <strong>Are these services confidential?</strong>
+                    <p>Yes, all listed organizations adhere to strict confidentiality policies.</p>
+                </li>
+                <li>
+                    <strong>What if I can't afford mental health care?</strong>
+                    <p>Many organizations offer sliding scale fees or free services. Contact them directly to discuss your options.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="feedback">
+            <h2>Feedback</h2>
+            <p>We're constantly working to improve our resources. If you have any suggestions or feedback, please <a href="mailto:feedback@mentalhealth.nl">contact us</a>.</p>
+        </section>
+
+        <p class="closing-statement">Remember, seeking help is a sign of strength, not weakness. You're not alone in this journey.</p>
+    </main>
+
+    <script>
+        const questions = [
+            {
+                question: "What type of support are you primarily looking for?",
+                options: ["General mental health information", "Crisis support", "Peer support and advocacy", "Depression-specific support"]
+            },
+            {
+                question: "How urgent is your need for support?",
+                options: ["Immediate/Crisis", "Within the next few days", "General information, not time-sensitive"]
+            },
+            {
+                question: "Do you prefer online or phone-based support?",
+                options: ["Online", "Phone", "Both/No preference"]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+
+        function showQuestion() {
+            const questionEl = document.getElementById('question');
+            const optionsEl = document.getElementById('options');
+            const question = questions[currentQuestion];
+            
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => selectOption(index);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function selectOption(index) {
+            answers.push(index);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultEl = document.getElementById('result');
+            let recommendation;
+            if (answers[0] === 0) {
+                recommendation = "GGZ Nederland";
+            } else if (answers[0] === 1 || answers[1] === 0) {
+                recommendation = "113 Suicide Prevention";
+            } else if (answers[0] === 2) {
+                recommendation = "MIND";
+            } else {
+                recommendation = "Depression Association";
+            }
+            
+            resultEl.innerHTML = `<p>Based on your answers, we recommend contacting <strong>${recommendation}</strong>.</p>
+                                  <p>Remember, this is just a suggestion. If you're in immediate crisis, please contact emergency services or 113 Suicide Prevention.</p>`;
+            resultEl.style.display = 'block';
+            document.getElementById('quiz').style.display = 'none';
+        }
+
+        showQuestion();
+
+        // Smooth scroll and progress bar
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const fullHeight = document.body.clientHeight;
+            const scrolled = window.scrollY;
+            const percentScrolled = (scrolled / (fullHeight - windowHeight)) * 100;
+            document.getElementById('progress-bar').style.width = percentScrolled + '%';
+        });
+
+        // Animate resources on scroll
+        const resources = document.querySelectorAll('.resource');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        resources.forEach(resource => {
+            observer.observe(resource);
+        });
+
+        // Expand/collapse resource content
+        document.querySelectorAll('.expand-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const resource = btn.closest('.resource');
+                resource.classList.toggle('expanded');
+                btn.textContent = resource.classList.contains('expanded') ? 'Read Less' : 'Read More';
+            });
+        });
+    </script>
+</body>
+</html>
