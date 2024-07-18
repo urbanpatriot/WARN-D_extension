@@ -454,7 +454,7 @@
     </div>
 
     <style>
-    #colophon {
+#colophon {
         background-color: #2a2a2a;
         color: #e5e5e5;
         padding: 20px 0;
@@ -513,7 +513,45 @@
         background-color: #004d7a;
     }
 
+    /* New styles for responsive header */
+    header {
+        background-color: #0063a0;
+        color: white;
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+
+    .site-title {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .main-content {
+        margin-top: 100px; /* Adjust based on your header height */
+        padding: 20px;
+    }
+
     @media screen and (max-width: 768px) {
+        header {
+            padding: 10px;
+        }
+
+        .site-title {
+            font-size: 20px;
+        }
+
         #footer-inside {
             flex-direction: column;
             text-align: center;
@@ -524,8 +562,25 @@
         }
     }
     </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-content">
+            <h1 class="site-title">Your Website Title</h1>
+            <nav>
+                <!-- Add your navigation menu items here -->
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Your existing content goes here -->
+    </div>
+
+    <!-- Rest of your HTML content -->
 
     <script>
+    // Existing JavaScript
     const questions = [
         {
             question: "What type of support are you primarily looking for?",
@@ -592,6 +647,18 @@
 
     window.onload = showQuestion;
 
+    // New JavaScript for responsive header
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.style.padding = '5px';
+            header.querySelector('.site-title').style.fontSize = '18px';
+        } else {
+            header.style.padding = '20px';
+            header.querySelector('.site-title').style.fontSize = '24px';
+        }
+    });
+
     // Mobile menu functionality
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -620,3 +687,4 @@
     </script>
 </body>
 </html>
+
