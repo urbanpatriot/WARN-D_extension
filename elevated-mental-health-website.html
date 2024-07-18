@@ -326,7 +326,7 @@
 
         showQuestion();
 
-        // Smooth scroll and progress bar
+        
         window.addEventListener('scroll', () => {
             const windowHeight = window.innerHeight;
             const fullHeight = document.body.clientHeight;
@@ -335,7 +335,7 @@
             document.getElementById('progress-bar').style.width = percentScrolled + '%';
         });
 
-        // Animate resources on scroll
+        
         const resources = document.querySelectorAll('.resource');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -350,7 +350,7 @@
             observer.observe(resource);
         });
 
-        // Expand/collapse resource content
+      
         document.querySelectorAll('.expand-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const resource = btn.closest('.resource');
