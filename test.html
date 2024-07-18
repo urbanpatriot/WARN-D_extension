@@ -7,7 +7,6 @@
     <title>Mental Health Resources - WARN-D</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap">
     <style>
-        
         body {
             font-family: Open Sans, sans-serif;
             font-size: 16px;
@@ -18,7 +17,6 @@
             margin: 0;
             padding: 10px;
         }
-        
         
         #site-header-main {
             background-color: #fff;
@@ -140,7 +138,6 @@
         h1 { font-size: 2.33em; }
         h2 { font-size: 2.06em; }
 
-        
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -167,6 +164,92 @@
             margin-top: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            #site-header-main {
+                height: auto;
+            }
+            #site-header-main-inside {
+                flex-direction: column;
+                padding: 10px;
+            }
+            #branding {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            #access {
+                width: 100%;
+            }
+            #access ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            #access ul li {
+                width: 100%;
+                text-align: center;
+            }
+            #access ul li a {
+                padding: 10px 0;
+            }
+            #access ul ul {
+                position: static;
+                display: none;
+                width: 100%;
+            }
+            #access ul li:hover > ul {
+                display: block;
+            }
+            #access ul ul li {
+                width: 100%;
+            }
+            #header-image-main {
+                margin-top: 0;
+            }
+            .header-image {
+                height: 100px;
+            }
+            #content {
+                padding: 10px;
+            }
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            .resource {
+                padding: 15px;
+            }
+            #options {
+                flex-direction: column;
+            }
+            .quiz-button {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile menu styles */
+        @media screen and (max-width: 768px) {
+            #access ul {
+                display: none;
+            }
+            #access.active ul {
+                display: flex;
+            }
+            #mobile-menu-toggle {
+                display: block;
+                font-size: 24px;
+                color: #0063a0;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            #mobile-menu-toggle {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="home page-template-default page page-id-26 wp-custom-logo wp-embed-responsive fluida-image-one fluida-caption-two fluida-totop-normal fluida-stripped-table fluida-fixed-menu fluida-responsive-headerimage fluida-responsive-featured fluida-magazine-two fluida-magazine-layout fluida-comment-placeholder fluida-elementshadow fluida-normalizedtags fluida-article-animation-fade fluida-menu-animation" itemscope itemtype="http://schema.org/WebPage">
@@ -179,6 +262,7 @@
                             <img src="https://warn-d.eiko-fried.com/wp-content/uploads/2021/07/WARN-D-Logo-01-Copy-e1627043404983.png" class="custom-logo" alt="WARN-D" decoding="async" />
                         </a>
                     </div>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
                     <nav id="access" role="navigation" aria-label="Primary Menu" itemscope itemtype="http://schema.org/SiteNavigationElement">
                         <div>
                             <ul id="prime_nav" class="">
@@ -210,7 +294,6 @@
                 </div>
             </div>
         </header>
-
         <div id="content" class="cryout">
             <div id="container" class="one-column">
                 <main id="main" class="main">
@@ -349,8 +432,28 @@
                 </main>
             </div>
         </div>
+        <aside id="colophon" itemscope itemtype="http://schema.org/WPSideBar">
+            <div id="colophon-inside" class="footer-two">
+                <section class="widget-container widget_media_image">
+                    <div class="footer-widget-inside">
+                        <img width="450" height="178" src="https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png" class="image wp-image-2998 attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" loading="lazy" srcset="https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png 808w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=450%2C178&amp;ssl=1 450w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=768%2C303&amp;ssl=1 768w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=507%2C200&amp;ssl=1 507w" sizes="(max-width: 450px) 100vw, 450px" />
+                    </div>
+                </section>
+            </div>
+        </aside>
 
-         <style>
+        <footer id="footer" class="cryout" itemscope itemtype="http://schema.org/WPFooter">
+            <div id="footer-inside">
+                <div id="site-copyright">©2021 Dr Eiko Fried, Leiden University</div>
+                <div style="display:block;float:right;clear: right;font-size: .9em;">
+                    Powered by <a target="_blank" href="http://www.cryoutcreations.eu/wordpress-themes/fluida" title="Fluida WordPress Theme by Cryout Creations">Fluida</a> &amp; 
+                    <a target="_blank" href="http://wordpress.org/" title="Semantic Personal Publishing Platform">WordPress</a>.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <style>
     #colophon {
         background-color: #2a2a2a;
         color: #e5e5e5;
@@ -386,30 +489,7 @@
         max-width: 450px;
         height: auto;
     }
-     </style>
 
-<aside id="colophon" itemscope itemtype="http://schema.org/WPSideBar">
-    <div id="colophon-inside" class="footer-two">
-        <section class="widget-container widget_media_image">
-            <div class="footer-widget-inside">
-                <img width="450" height="178" src="https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png" class="image wp-image-2998 attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" loading="lazy" srcset="https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png 808w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=450%2C178&amp;ssl=1 450w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=768%2C303&amp;ssl=1 768w, https://warn-d.eiko-fried.com/wp-content/uploads/2024/04/logos.png?resize=507%2C200&amp;ssl=1 507w" sizes="(max-width: 450px) 100vw, 450px" />
-            </div>
-        </section>
-    </div>
-</aside>
-
-<footer id="footer" class="cryout" itemscope itemtype="http://schema.org/WPFooter">
-    <div id="footer-inside">
-        <div id="site-copyright">©2021 Dr Eiko Fried, Leiden University</div>
-        <div style="display:block;float:right;clear: right;font-size: .9em;">
-            Powered by <a target="_blank" href="http://www.cryoutcreations.eu/wordpress-themes/fluida" title="Fluida WordPress Theme by Cryout Creations">Fluida</a> &amp; 
-            <a target="_blank" href="http://wordpress.org/" title="Semantic Personal Publishing Platform">WordPress</a>.
-        </div>
-    </div>
-</footer>
-    </div>
-
-<style>
     #options {
         display: flex;
         flex-wrap: wrap;
@@ -432,7 +512,18 @@
     .quiz-button:hover {
         background-color: #004d7a;
     }
-</style>
+
+    @media screen and (max-width: 768px) {
+        #footer-inside {
+            flex-direction: column;
+            text-align: center;
+        }
+        #site-copyright, #footer-inside div {
+            float: none;
+            margin-bottom: 10px;
+        }
+    }
+    </style>
 
     <script>
     const questions = [
@@ -500,103 +591,8 @@
     }
 
     window.onload = showQuestion;
-    </script>
 
-@media screen and (max-width: 768px) {
-    /* Header styles */
-    #site-header-main {
-        height: auto;
-    }
-    #site-header-main-inside {
-        flex-direction: column;
-        padding: 10px;
-    }
-    #branding {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-<button id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-
-    #access {
-        width: 100%;
-    }
-    #access ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    #access ul li {
-        width: 100%;
-        text-align: center;
-    }
-    #access ul li a {
-        padding: 10px 0;
-    }
-    #access ul ul {
-        position: static;
-        display: none;
-        width: 100%;
-    }
-    #access ul li:hover > ul {
-        display: block;
-    }
-    #access ul ul li {
-        width: 100%;
-    }
-
-    /* Header image */
-    #header-image-main {
-        margin-top: 0;
-    }
-    .header-image {
-        height: 100px;
-    }
-
-    /* Content styles */
-    #content {
-        padding: 10px;
-    }
-    .resources-grid {
-        grid-template-columns: 1fr;
-    }
-    .resource {
-        padding: 15px;
-    }
-
-    /* Quiz styles */
-    #options {
-        flex-direction: column;
-    }
-    .quiz-button {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #access ul {
-        display: none;
-    }
-    #access.active ul {
-        display: flex;
-    }
-    #mobile-menu-toggle {
-        display: block;
-        font-size: 24px;
-        color: #0063a0;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-    }
-}
-
-@media screen and (min-width: 769px) {
-    #mobile-menu-toggle {
-        display: none;
-    }
-}
-
-<script>
+    // Mobile menu functionality
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const accessMenu = document.getElementById('access');
@@ -621,7 +617,6 @@
             }
         });
     });
-</script>
-
+    </script>
 </body>
 </html>
